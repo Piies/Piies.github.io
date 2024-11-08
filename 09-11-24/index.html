@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz for My Love</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: pink;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .question {
+            display: none;
+            margin: 20px;
+        }
+        .question.active {
+            display: block;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff7e7e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #ff4c4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>bf quiz of the day</h1>
+        <p>Honeyyyyy</p>
+        <p>It's my turn this timeee hehe</p>
+        
+        <div id="question1" class="question active">
+            <p>What is my favorite color? pake '_' honeyy</p>
+            <input type="text" id="answer1">
+            <button onclick="checkAnswer(1, 'Prussian_Blue')">Submit</button>
+            <p>I remember yours is bluee, and u said u like navy blue the most</p>
+        </div>
+
+        <div id="question2" class="question">
+            <p>What is my favorite food?</p>
+            <input type="text" id="answer2">
+            <button onclick="checkAnswer(2, 'Sushi')">Submit</button>
+            <p>I remember yours is mi pake kuah</p>
+        </div>
+
+        <div id="question3" class="question">
+            <p>Where the place we had our first date? like, really dating date hehe</p>
+            <input type="text" id="answer3">
+            <button onclick="checkAnswer(3, 'BXSea')">Submit</button>
+        </div>
+
+        <div id="question4" class="question">
+            <p>Where do we usually spend most of our time and dance at night?</p>
+            <input type="text" id="answer4">
+            <button onclick="checkAnswer(4, 'Wisdom')">Submit</button>
+        </div>
+
+        <div id="question5" class="question">
+            <p>What was the first gift I ever bought uuu</p>
+            <input type="text" id="answer5">
+            <button onclick="checkAnswer(5, 'Panda_keychain')">Submit</button>
+        </div>
+
+        <div id="question6" class="question">
+            <p>Do u remember the green water videoo? where did we film it?</p>
+            <input type="text" id="answer6">
+            <button onclick="checkAnswer(6, 'Panda_keychain')">Submit</button>
+        </div>
+
+        <div id="question7" class="question">
+            <p>What flower did I give u when we made it official?</p>
+            <input type="text" id="answer7">
+            <button onclick="checkAnswer(7, 'Edelweiss')">Submit</button>
+        </div>
+
+        <div id="endMessage" class="question">
+            <h2>Yeayyy, you got all the answers right!</h2>
+            <p>I love you so much babyyy ❤</p>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(questionNumber, correctAnswer) {
+            const userAnswer = document.getElementById(`answer${questionNumber}`).value.trim().toLowerCase();
+            if (userAnswer === correctAnswer) {
+                // Hide current question
+                document.getElementById(`question${questionNumber}`).classList.remove('active');
+                // Show next question
+                const nextQuestion = questionNumber + 1;
+                if (document.getElementById(`question${nextQuestion}`)) {
+                    document.getElementById(`question${nextQuestion}`).classList.add('active');
+                } else {
+                    // No more questions, show end message
+                    document.getElementById('endMessage').classList.add('active');
+                }
+            } else {
+                alert('Oops! Try again.');
+            }
+        }
+    </script>
+</body>
+</html>
