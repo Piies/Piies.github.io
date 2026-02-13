@@ -24,3 +24,21 @@ text{
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
 }
+
+.flower{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    margin-top: 0;
+    margin-left: 0;
+    pointer-events: none;
+}
+.flower div{
+    position: absolute;
+    display: block;
+}
+
+.flower div:nth-child(1){
+    left: 20%;
+    animation: animate 15s linear infinite;
+}
